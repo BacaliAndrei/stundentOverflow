@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString
@@ -16,9 +18,9 @@ public class CategoryEntity {
     private Integer categoryId;
     @Column
     private String categoryName;
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @MapKey(name = "questId")
-    private QuestEntity quest;
+    private List<QuestEntity> quests; //TODO: Many - to many
 
     public CategoryEntity(Integer categoryId, String categoryName) {
         this.categoryId = categoryId;

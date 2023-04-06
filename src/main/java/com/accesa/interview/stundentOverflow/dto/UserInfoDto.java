@@ -5,11 +5,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserInfoDto {
+public class UserInfoDto { //TODO: do we need this (can stay for now but don't forget about it, maybe can be deleted)
 
-    private Integer userId;
+    private Integer Id;
 
-    private String username;
+    private String userName;
 
     private String email;
 

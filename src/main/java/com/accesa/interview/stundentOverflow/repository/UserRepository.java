@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends CrudRepository<UserEntity,Integer >, PagingAndSortingRepository<UserEntity,Integer> {
+public interface UserRepository extends CrudRepository<UserEntity, Integer>, PagingAndSortingRepository<UserEntity, Integer> {
 
-    Optional<UserEntity>findByUsername(String username);
+    Optional<UserEntity> findByUserName(String username);
 }

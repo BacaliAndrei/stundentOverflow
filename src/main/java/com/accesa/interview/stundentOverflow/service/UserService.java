@@ -5,13 +5,14 @@ import com.accesa.interview.stundentOverflow.dto.UserInfoDto;
 
 import java.util.List;
 
-public interface UserService  {
+public interface UserService {
 
-UserInfoDto createUser(UserCreateDto userCreateDto);
-UserInfoDto findUserByUserName(String userName);
-void deleteUser(Integer userId);
+    UserInfoDto createUser(UserCreateDto userCreateDto);
 
-List<UserInfoDto> getAllUsers();
+    UserInfoDto findUserByUserName(String userName);
 
+    void deleteUser(Integer userId);
+
+    List<UserInfoDto> getAllUsers();
 
 }

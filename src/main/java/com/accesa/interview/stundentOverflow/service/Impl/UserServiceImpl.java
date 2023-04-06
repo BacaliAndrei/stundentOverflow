@@ -1,6 +1,6 @@
 package com.accesa.interview.stundentOverflow.service.Impl;
 
-import com.accesa.interview.stundentOverflow.adaptor.UserAdaptor;
+import com.accesa.interview.stundentOverflow.adapter.UserAdapter;
 import com.accesa.interview.stundentOverflow.dto.UserCreateDto;
 import com.accesa.interview.stundentOverflow.dto.UserInfoDto;
 import com.accesa.interview.stundentOverflow.entity.UserEntity;
@@ -26,9 +26,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserInfoDto createUser(UserCreateDto userCreateDto) {
 
-        UserEntity user = UserAdaptor.convertToUserEntity(userCreateDto);
+        UserEntity user = UserAdapter.convertToUserEntity(userCreateDto);
         UserEntity response = userRepository.save(user);
-        UserInfoDto userInfoDto = UserAdaptor.convertToUserInfoDto(response);
+        UserInfoDto userInfoDto = UserAdapter.convertToUserInfoDto(response);
 
         return userInfoDto;
     }
@@ -36,8 +36,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserInfoDto findUserByUserName(String username) {
 
-        UserEntity user = userRepository.findByUsername(username).orElseThrow(() -> new UserException("User not found!"));
-        return UserAdaptor.convertToUserInfoDto(user);
+        UserEntity user = userRepository.findByUserName(username).orElseThrow(() -> new UserException("User not found!"));
+        return UserAdapter.convertToUserInfoDto(user);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
 
         List<UserInfoDto> userInfoDtoList = new ArrayList<>();
         for (UserEntity e : userEntityList) {
-            userInfoDtoList.add(UserAdaptor.convertToUserInfoDto(e));
+            userInfoDtoList.add(UserAdapter.convertToUserInfoDto(e));
         }
         return userInfoDtoList;
     }

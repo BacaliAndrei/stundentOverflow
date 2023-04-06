@@ -14,10 +14,22 @@ import lombok.ToString;
 public class AnswerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer answerId;
     @Column
     private String answerDescription;
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private UserEntity user;
+    @OneToOne
+    private UserEntity user; //TODO: remove many to one -> 1 answer has 1 author (user)
+    @OneToOne
+    private QuestEntity quest;
 
+    public AnswerEntity(Integer answerId, String answerDescription, UserEntity user) {
+        this.answerId = answerId;
+        this.answerDescription = answerDescription;
+        this.user = user;
+    }
+
+    public AnswerEntity() {
+
+    }
 }
+

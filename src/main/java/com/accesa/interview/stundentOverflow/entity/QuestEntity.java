@@ -10,7 +10,6 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 @Entity
-@Table(name = "quest")
 public class QuestEntity {
 
     @Id
@@ -19,18 +18,20 @@ public class QuestEntity {
     @Column
     private Integer questValue;
     @Column
-    private String questDescription;
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    private String description;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private UserEntity user;
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private CategoryEntity category;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @MapKey(name = "categoryId")
+    private List<CategoryEntity> categories; //TODO: Many - to many (nice to have)
+    @OneToOne
+    private AnswerEntity correctAnswer;
 
-
-
-    public QuestEntity(Integer questId, Integer questValue, String questDescription) {
+    public QuestEntity(Integer questId, Integer questValue, String description, List<CategoryEntity> categories) {
         this.questId = questId;
         this.questValue = questValue;
-        this.questDescription = questDescription;
+        this.description = description;
+        this.categories = categories;
     }
 
     public QuestEntity() {
