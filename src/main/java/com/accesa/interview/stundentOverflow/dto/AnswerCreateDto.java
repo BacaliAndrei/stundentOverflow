@@ -11,6 +11,10 @@ public class AnswerCreateDto {
     @NotBlank(message = "Write your answer to the question !")
     private String answerDescription;
 
+    public AnswerCreateDto() {
+
+    }
+
     public AnswerCreateDto(String answerDescription) {
         this.answerDescription = answerDescription;
     }

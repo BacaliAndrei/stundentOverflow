@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode
-@Entity(name="category")
+@Entity
 public class CategoryEntity {
 
     @Id
@@ -18,12 +18,12 @@ public class CategoryEntity {
     private Integer categoryId;
     @Column
     private String categoryName;
+
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @MapKey(name = "questId")
     private List<QuestEntity> quests; //TODO: Many - to many
 
-    public CategoryEntity(Integer categoryId, String categoryName) {
-        this.categoryId = categoryId;
+    public CategoryEntity(String categoryName) {
         this.categoryName = categoryName;
     }
 

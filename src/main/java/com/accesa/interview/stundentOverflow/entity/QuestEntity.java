@@ -18,7 +18,7 @@ public class QuestEntity {
     @Column
     private Integer questValue;
     @Column
-    private String description;
+    private String questDescription;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private UserEntity user;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -27,10 +27,10 @@ public class QuestEntity {
     @OneToOne
     private AnswerEntity correctAnswer;
 
-    public QuestEntity(Integer questId, Integer questValue, String description, List<CategoryEntity> categories) {
+    public QuestEntity(Integer questId, Integer questValue, String questDescription, List<CategoryEntity> categories) {
         this.questId = questId;
         this.questValue = questValue;
-        this.description = description;
+        this.questDescription = questDescription;
         this.categories = categories;
     }
 

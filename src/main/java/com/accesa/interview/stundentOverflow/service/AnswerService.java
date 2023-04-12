@@ -5,4 +5,5 @@ import com.accesa.interview.stundentOverflow.entity.AnswerEntity;
 
 public interface AnswerService {
     AnswerEntity createAnswer(AnswerCreateDto answerCreateDto);
+    AnswerCreateDto answerCreateDTO(Integer id);
 }

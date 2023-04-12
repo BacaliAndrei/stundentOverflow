@@ -9,7 +9,7 @@ public class QuestAdapter {
 
         QuestEntity quest = new QuestEntity();
         quest.setQuestValue(questCreateDto.getQuestValue());
-        quest.setDescription(questCreateDto.getDescription());
+        quest.setQuestDescription(questCreateDto.getDescription());
 
         return quest;
     }

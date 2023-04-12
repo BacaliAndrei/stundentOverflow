@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
-@Entity(name = "answer")
+@Entity
 public class AnswerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,14 +18,14 @@ public class AnswerEntity {
     @Column
     private String answerDescription;
     @OneToOne
-    private UserEntity user; //TODO: remove many to one -> 1 answer has 1 author (user)
+    private UserEntity user;
     @OneToOne
     private QuestEntity quest;
 
-    public AnswerEntity(Integer answerId, String answerDescription, UserEntity user) {
+    public AnswerEntity(Integer answerId, String answerDescription ) {
         this.answerId = answerId;
         this.answerDescription = answerDescription;
-        this.user = user;
+
     }
 
     public AnswerEntity() {

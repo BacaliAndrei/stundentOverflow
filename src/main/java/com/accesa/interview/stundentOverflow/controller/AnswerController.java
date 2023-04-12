@@ -24,4 +24,9 @@ public class AnswerController {
 
         return ResponseEntity.ok(answer);
     }
+    @GetMapping("/")
+    public ResponseEntity<AnswerCreateDto> getAnswer(@RequestParam("id") Integer id){
+        AnswerCreateDto answer=answerService.answerCreateDTO(id);
+        return ResponseEntity.ok(answer);
+    }
 }

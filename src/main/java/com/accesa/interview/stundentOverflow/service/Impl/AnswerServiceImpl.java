@@ -25,4 +25,10 @@ public class AnswerServiceImpl implements AnswerService {
 
         return answer;
     }
+
+    @Override
+    public AnswerCreateDto answerCreateDTO(Integer id) {
+        AnswerEntity answer=answerRepository.findById(id).orElseThrow();
+        return new AnswerCreateDto(answer.getAnswerDescription());
+    }
 }

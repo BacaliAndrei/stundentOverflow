@@ -7,4 +7,5 @@ public interface QuestService {
 
     QuestEntity createQuest(QuestCreateDto questCreateDto);
 
+    QuestCreateDto getQuestCreateDto(Integer id);
 }

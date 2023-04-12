@@ -14,4 +14,7 @@ public class CategoryCreateDto {
     public CategoryCreateDto(String categoryName) {
         this.categoryName = categoryName;
     }
+
+    public CategoryCreateDto() {
+    }
 }

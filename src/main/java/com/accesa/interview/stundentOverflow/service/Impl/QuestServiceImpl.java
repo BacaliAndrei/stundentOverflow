@@ -8,6 +8,8 @@ import com.accesa.interview.stundentOverflow.service.QuestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service("questService")
 public class QuestServiceImpl implements QuestService {
 
@@ -25,5 +27,11 @@ public class QuestServiceImpl implements QuestService {
         QuestEntity quest = questRepository.save(questEntity);
 
         return quest;
+    }
+
+    @Override
+    public QuestCreateDto getQuestCreateDto(Integer id) {
+        QuestEntity entity = questRepository.findById(id).orElseThrow();
+        return new QuestCreateDto(entity.getQuestValue(), entity.getQuestDescription());
     }
 }
